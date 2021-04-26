@@ -24,7 +24,6 @@ namespace GraphQL_HotChoclate_EFCore.Services
         {
             var data = new Employee
             {
-                Id = _dbContext.Employees.Max(c => c.Id) + 1,
                 Name = employee.Name,
                 Designation = employee.Designation
             };
@@ -32,9 +31,9 @@ namespace GraphQL_HotChoclate_EFCore.Services
             await _dbContext.SaveChangesAsync();
             return data;
         }
-        public async Task<bool> Delete(int Id)
+        public bool Delete(int Id)
         {
-            var employee = await _dbContext.Employees.FirstOrDefaultAsync(c => c.Id == Id);
+            var employee =  _dbContext.Employees.FirstOrDefault(c => c.Id == Id);
             if(employee is not null) 
             {
                 _dbContext.Employees.Remove(employee);
