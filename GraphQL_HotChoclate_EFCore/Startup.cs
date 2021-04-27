@@ -34,9 +34,11 @@ namespace GraphQL_HotChoclate_EFCore
             services.AddDbContext<DatabaseContext>(item => item.UseSqlServer(Configuration.GetConnectionString("myconn")));
             #endregion
             services.AddScoped<Query>();
+            services.AddScoped<Mutuation>();
             services.AddScoped<IEmployeeService,EmployeeService>();
             services.AddGraphQL(c => SchemaBuilder.New().AddServices(c).AddType<GraphQLTypes>()
                                                                         .AddQueryType<Query>()
+                                                                        .AddMutationType<Mutuation>()
                                                                          .Create());
         }
 

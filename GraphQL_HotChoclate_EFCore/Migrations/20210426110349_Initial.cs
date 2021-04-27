@@ -19,7 +19,7 @@ namespace GraphQL_HotChoclate_EFCore.Migrations
                 {
                     table.PrimaryKey("PK_Employees", x => x.Id);
                 });
-
+            
             migrationBuilder.InsertData(
                 table: "Employees",
                 columns: new[] { "Id", "Designation", "Name" },
