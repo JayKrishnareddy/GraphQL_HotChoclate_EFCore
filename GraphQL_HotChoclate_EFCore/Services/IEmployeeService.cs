@@ -9,7 +9,7 @@ namespace GraphQL_HotChoclate_EFCore.Services
    public interface IEmployeeService
     {
         Task<Employee> Create(Employee employee);
-        Task<bool> Delete(int Id);
+        Task<bool> Delete(DeleteVM deleteVM);
         IQueryable<Employee> GetAll();
     }
 }

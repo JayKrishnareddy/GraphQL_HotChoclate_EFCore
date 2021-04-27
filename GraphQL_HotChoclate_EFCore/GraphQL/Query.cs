@@ -22,6 +22,6 @@ namespace GraphQL_HotChoclate_EFCore.GraphQL
 
         public IQueryable<Employee> Employees => _employeeService.GetAll();
         public async Task<Employee> Create(Employee employee) => await _employeeService.Create(employee);
-        public bool Delete(int Id) =>  _employeeService.Delete(Id);
+        public async Task<bool> Delete(DeleteVM deleteVM) => await _employeeService.Delete(deleteVM);
     }
 }

@@ -31,12 +31,13 @@ namespace GraphQL_HotChoclate_EFCore.Services
             await _dbContext.SaveChangesAsync();
             return data;
         }
-        public async Task<bool> Delete(int Id)
+        public async Task<bool> Delete(DeleteVM deleteVM)
         {
-            var employee = await  _dbContext.Employees.FirstOrDefaultAsync(c => c.Id == Id);
+            var employee = await  _dbContext.Employees.FirstOrDefaultAsync(c => c.Id == deleteVM.Id);
             if(employee is not null) 
             {
                 _dbContext.Employees.Remove(employee);
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             return false;
@@ -45,5 +46,10 @@ namespace GraphQL_HotChoclate_EFCore.Services
         {
             return _dbContext.Employees.AsQueryable();
         }
+    }
+
+    public class DeleteVM
+    {
+        public int Id { get; set; }
     }
 }
