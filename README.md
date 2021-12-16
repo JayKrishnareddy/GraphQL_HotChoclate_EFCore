@@ -1,6 +1,6 @@
 ## Building GraphQL API with .Net 5- Entity Framework Core and HotChocolate 
 
-![Alt Text](https://github.com/JayKrishnareddy/CleanArchitecture/blob/master/1_Tpfkss_hdHNyaaJ_3bBgWQ.png)
+![Alt Text](https://github.com/JayKrishnareddy/GraphQL_HotChoclate_EFCore/blob/master/GraphQL.png)
 
 ### Topics Covered in this Project?
 - Prerequisites
